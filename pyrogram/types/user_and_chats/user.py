@@ -266,7 +266,7 @@ class User(Object, Update):
         if user is None or isinstance(user, raw.types.UserEmpty):
             return None
         user_name = user.username
-        active_usernames = getattr(user, "usernames", [])
+        active_usernames = getattr(user, "usernames", None) or []
         active_users = getattr(user, "bot_active_users", None)
         usernames = None
         if len(active_usernames) >= 1:
@@ -308,7 +308,7 @@ class User(Object, Update):
             dc_id=getattr(user.photo, "dc_id", None),
             phone_number=user.phone,
             photo=types.ChatPhoto._parse(client, user.photo, user.id, user.access_hash),
-            restrictions=types.List([types.Restriction._parse(r) for r in user.restriction_reason]) or None,
+            restrictions=types.List([types.Restriction._parse(r) for r in (user.restriction_reason or [])]) or None,
             reply_color=types.ChatColor._parse(getattr(user, "color", None)),
             profile_color=types.ChatColor._parse_profile_color(getattr(user, "profile_color", None)),
             active_users=active_users,

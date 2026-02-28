@@ -20,7 +20,7 @@
 from typing import Union, Optional
 
 import pyrogram
-from pyrogram import raw
+from pyrogram import enums, raw
 from pyrogram import types
 from ..object import Object
 
@@ -76,6 +76,12 @@ class InlineKeyboardButton(Object):
 
         copy_text (``str``, *optional*):
             A button that copies the text to the clipboard.
+
+        icon_custom_emoji_id (``int`` | ``str``, *optional*):
+            Unique identifier of the custom emoji shown before the button text.
+
+        style (:obj:`~pyrogram.enums.ButtonStyle`, *optional*):
+            Visual style of the button. One of PRIMARY (blue), DANGER (red), SUCCESS (green).
     """
 
     def __init__(
@@ -90,7 +96,9 @@ class InlineKeyboardButton(Object):
         switch_inline_query_current_chat: Optional[str] = None,
         callback_game: Optional["types.CallbackGame"] = None,
         requires_password: Optional[bool] = None,
-        copy_text: Optional[str] = None
+        copy_text: Optional[str] = None,
+        icon_custom_emoji_id: Optional[Union[int, str]] = None,
+        style: Optional["enums.ButtonStyle"] = None
     ):
         super().__init__()
 
@@ -106,6 +114,36 @@ class InlineKeyboardButton(Object):
         self.requires_password = requires_password
         # self.pay = pay
         self.copy_text = copy_text
+        self.icon_custom_emoji_id = int(icon_custom_emoji_id) if icon_custom_emoji_id is not None else None
+        self.style = style
+
+    @staticmethod
+    def _build_raw_style(style, icon_custom_emoji_id):
+        """Build raw.types.KeyboardButtonStyle from high-level params."""
+        if style is None and icon_custom_emoji_id is None:
+            return None
+        icon_id = int(icon_custom_emoji_id) if icon_custom_emoji_id is not None else None
+        return raw.types.KeyboardButtonStyle(
+            bg_primary=True if style == enums.ButtonStyle.PRIMARY else None,
+            bg_danger=True if style == enums.ButtonStyle.DANGER else None,
+            bg_success=True if style == enums.ButtonStyle.SUCCESS else None,
+            icon=icon_id
+        )
+
+    @staticmethod
+    def _parse_raw_style(raw_style):
+        """Parse raw.types.KeyboardButtonStyle into (ButtonStyle enum, icon_id)."""
+        if raw_style is None:
+            return None, None
+        style = None
+        if getattr(raw_style, 'bg_primary', False):
+            style = enums.ButtonStyle.PRIMARY
+        elif getattr(raw_style, 'bg_danger', False):
+            style = enums.ButtonStyle.DANGER
+        elif getattr(raw_style, 'bg_success', False):
+            style = enums.ButtonStyle.SUCCESS
+        icon = getattr(raw_style, 'icon', None)
+        return style, icon
 
     @staticmethod
     def read(b: "raw.base.KeyboardButton"):
@@ -117,66 +155,92 @@ class InlineKeyboardButton(Object):
             except UnicodeDecodeError:
                 data = b.data
 
+            style, icon = InlineKeyboardButton._parse_raw_style(getattr(b, 'style', None))
             return InlineKeyboardButton(
                 text=b.text,
                 callback_data=data,
-                requires_password=getattr(b, "requires_password", None)
+                requires_password=getattr(b, "requires_password", None),
+                style=style,
+                icon_custom_emoji_id=icon
             )
 
         if isinstance(b, raw.types.KeyboardButtonUrl):
+            style, icon = InlineKeyboardButton._parse_raw_style(getattr(b, 'style', None))
             return InlineKeyboardButton(
                 text=b.text,
-                url=b.url
+                url=b.url,
+                style=style,
+                icon_custom_emoji_id=icon
             )
 
         if isinstance(b, raw.types.KeyboardButtonUrlAuth):
+            style, icon = InlineKeyboardButton._parse_raw_style(getattr(b, 'style', None))
             return InlineKeyboardButton(
                 text=b.text,
-                login_url=types.LoginUrl.read(b)
+                login_url=types.LoginUrl.read(b),
+                style=style,
+                icon_custom_emoji_id=icon
             )
 
         if isinstance(b, raw.types.KeyboardButtonUserProfile):
+            style, icon = InlineKeyboardButton._parse_raw_style(getattr(b, 'style', None))
             return InlineKeyboardButton(
                 text=b.text,
-                user_id=b.user_id
+                user_id=b.user_id,
+                style=style,
+                icon_custom_emoji_id=icon
             )
 
         if isinstance(b, raw.types.KeyboardButtonSwitchInline):
+            style, icon = InlineKeyboardButton._parse_raw_style(getattr(b, 'style', None))
             if b.same_peer:
                 return InlineKeyboardButton(
                     text=b.text,
-                    switch_inline_query_current_chat=b.query
+                    switch_inline_query_current_chat=b.query,
+                    style=style,
+                    icon_custom_emoji_id=icon
                 )
             else:
                 return InlineKeyboardButton(
                     text=b.text,
-                    switch_inline_query=b.query
+                    switch_inline_query=b.query,
+                    style=style,
+                    icon_custom_emoji_id=icon
                 )
 
         if isinstance(b, raw.types.KeyboardButtonGame):
+            style, icon = InlineKeyboardButton._parse_raw_style(getattr(b, 'style', None))
             return InlineKeyboardButton(
                 text=b.text,
-                callback_game=types.CallbackGame()
+                callback_game=types.CallbackGame(),
+                style=style,
+                icon_custom_emoji_id=icon
             )
 
         if isinstance(b, raw.types.KeyboardButtonWebView):
+            style, icon = InlineKeyboardButton._parse_raw_style(getattr(b, 'style', None))
             return InlineKeyboardButton(
                 text=b.text,
-                web_app=types.WebAppInfo(
-                    url=b.url
-                )
+                web_app=types.WebAppInfo(url=b.url),
+                style=style,
+                icon_custom_emoji_id=icon
             )
 
         if isinstance(b, raw.types.KeyboardButtonCopy):
+            style, icon = InlineKeyboardButton._parse_raw_style(getattr(b, 'style', None))
             return types.InlineKeyboardButton(
                 text=b.text,
-                copy_text=b.copy_text
+                copy_text=b.copy_text,
+                style=style,
+                icon_custom_emoji_id=icon
             )
 
         if isinstance(b, raw.types.KeyboardButtonBuy):
             return types.InlineKeyboardButtonBuy.read(b)
 
     async def write(self, client: "pyrogram.Client"):
+        raw_style = self._build_raw_style(self.style, self.icon_custom_emoji_id)
+
         if self.callback_data is not None:
             # Telegram only wants bytes, but we are allowed to pass strings too, for convenience.
             data = bytes(self.callback_data, "utf-8") if isinstance(self.callback_data, str) else self.callback_data
@@ -184,13 +248,15 @@ class InlineKeyboardButton(Object):
             return raw.types.KeyboardButtonCallback(
                 text=self.text,
                 data=data,
-                requires_password=self.requires_password
+                requires_password=self.requires_password,
+                style=raw_style
             )
 
         if self.url is not None:
             return raw.types.KeyboardButtonUrl(
                 text=self.text,
-                url=self.url
+                url=self.url,
+                style=raw_style
             )
 
         if self.login_url is not None:
@@ -202,35 +268,47 @@ class InlineKeyboardButton(Object):
         if self.user_id is not None:
             return raw.types.InputKeyboardButtonUserProfile(
                 text=self.text,
-                user_id=await client.resolve_peer(self.user_id)
+                user_id=await client.resolve_peer(self.user_id),
+                style=raw_style
             )
 
         if self.switch_inline_query is not None:
             return raw.types.KeyboardButtonSwitchInline(
                 text=self.text,
-                query=self.switch_inline_query
+                query=self.switch_inline_query,
+                style=raw_style
             )
 
         if self.switch_inline_query_current_chat is not None:
             return raw.types.KeyboardButtonSwitchInline(
                 text=self.text,
                 query=self.switch_inline_query_current_chat,
-                same_peer=True
+                same_peer=True,
+                style=raw_style
             )
 
         if self.callback_game is not None:
             return raw.types.KeyboardButtonGame(
-                text=self.text
+                text=self.text,
+                style=raw_style
             )
 
         if self.web_app is not None:
             return raw.types.KeyboardButtonWebView(
                 text=self.text,
-                url=self.web_app.url
+                url=self.web_app.url,
+                style=raw_style
             )
 
         if self.copy_text is not None:
             return raw.types.KeyboardButtonCopy(
                 text=self.text,
-                copy_text=self.copy_text
+                copy_text=self.copy_text,
+                style=raw_style
             )
+
+        # Plain button with optional style
+        return raw.types.KeyboardButton(
+            text=self.text,
+            style=raw_style
+        )

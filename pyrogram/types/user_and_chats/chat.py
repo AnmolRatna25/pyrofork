@@ -353,7 +353,7 @@ class Chat(Object):
             first_name=user.first_name,
             last_name=user.last_name,
             photo=types.ChatPhoto._parse(client, user.photo, peer_id, user.access_hash),
-            restrictions=types.List([types.Restriction._parse(r) for r in user.restriction_reason]) or None,
+            restrictions=types.List([types.Restriction._parse(r) for r in (user.restriction_reason or [])]) or None,
             dc_id=getattr(getattr(user, "photo", None), "dc_id", None),
             reply_color=types.ChatColor._parse(getattr(user, "color", None)),
             profile_color=types.ChatColor._parse_profile_color(getattr(user, "profile_color", None)),
@@ -365,7 +365,7 @@ class Chat(Object):
         if chat is None or isinstance(chat, raw.types.ChatEmpty):
             return None
         peer_id = -chat.id
-        active_usernames = getattr(chat, "usernames", [])
+        active_usernames = getattr(chat, "usernames", None) or []
         usernames = None
         if len(active_usernames) >= 1:
             usernames = []
@@ -392,9 +392,9 @@ class Chat(Object):
         if channel is None:
             return None
         peer_id = utils.get_channel_id(channel.id)
-        restriction_reason = getattr(channel, "restriction_reason", [])
+        restriction_reason = getattr(channel, "restriction_reason", None) or []
         user_name = getattr(channel, "username", None)
-        active_usernames = getattr(channel, "usernames", [])
+        active_usernames = getattr(channel, "usernames", None) or []
         if getattr(channel, "monoforum", None):
             chat_type = enums.ChatType.MONOFORUM
         elif getattr(channel, "forum", None):

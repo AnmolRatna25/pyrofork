@@ -1044,7 +1044,7 @@ class Message(Object, Update):
 
         if isinstance(message, raw.types.Message):
             message_thread_id = None
-            entities = [types.MessageEntity._parse(client, entity, users) for entity in message.entities]
+            entities = [types.MessageEntity._parse(client, entity, users) for entity in (message.entities or [])]
             entities = types.List(filter(lambda x: x is not None, entities))
 
             sender_business_bot = None

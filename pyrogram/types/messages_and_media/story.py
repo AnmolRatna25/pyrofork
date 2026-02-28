@@ -188,7 +188,7 @@ class Story(Object, Update):
             return await types.StorySkipped._parse(client, stories, peer)
         if isinstance(stories, raw.types.StoryItemDeleted):
             return await types.StoryDeleted._parse(client, stories, peer)
-        entities = [types.MessageEntity._parse(client, entity, {}) for entity in stories.entities]
+        entities = [types.MessageEntity._parse(client, entity, {}) for entity in (stories.entities or [])]
         entities = types.List(filter(lambda x: x is not None, entities))
         animation = None
         photo = None
