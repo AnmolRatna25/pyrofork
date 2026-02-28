@@ -6,6 +6,7 @@ main.py
 unknown_errors.txt
 .DS_Store
 
+test_buttons.py
 # Pyrogram generated code
 pyrogram/errors/exceptions/
 pyrogram/raw/functions/
