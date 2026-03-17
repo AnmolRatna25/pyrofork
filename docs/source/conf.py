@@ -74,7 +74,7 @@ html_theme_options = {
         "edit": "material/file-edit-outline",
     },
     "site_url": "https://pyrofork.wulan17.dev/",
-    "repo_url": "https://github.com/Mayuri-Chan/pyrofork/",
+    "repo_url": "https://github.com/AnmolRatna25/PyroRatnaGram/",
     "repo_name": "pyrofork",
     "globaltoc_collapse": True,
     "features": [
