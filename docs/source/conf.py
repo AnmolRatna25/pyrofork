@@ -73,9 +73,9 @@ html_theme_options = {
         "repo": "fontawesome/brands/github",
         "edit": "material/file-edit-outline",
     },
-    "site_url": "https://pyrofork.wulan17.dev/",
+    "site_url": "https://pyroratna.ratna.pw/",
     "repo_url": "https://github.com/AnmolRatna25/PyroRatnaGram/",
-    "repo_name": "pyrofork",
+    "repo_name": "PyroRatnaGram",
     "globaltoc_collapse": True,
     "features": [
         "navigation.expand",
