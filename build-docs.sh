@@ -57,17 +57,17 @@ function do_build() {
 }
 
 function do_clone() {
-    git clone https://wulan17:"$DOCS_KEY"@github.com/Mayuri-Chan/pyrofork-docs.git
+    git clone https://AnmolRatna25:"$DOCS_KEY"@github.com/AnmolRatna25/PyroRatnaGram-docs.git
 }
 
 function do_push() {
-    cd pyrofork-docs || exit 1
+    cd PyroRatnaGram-docs || exit 1
     mkdir -p "$BRANCH"
     cd "$BRANCH" || exit 1
     rm -rf _includes api genindex.html intro py-modindex.html sitemap.xml support.html topics _static faq index.html objects.inv searchindex.js start telegram
     cp -r ../../docs/build/html/* .
-    git config --local user.name "Mayuri-Chan"
-    git config --local user.email "mayuri@mayuri.my.id"
+    git config --local user.name "Anmol Ratna"
+    git config --local user.email "anmol@anmol.my.id"
     git add --all
     git commit -a -m "docs: $BRANCH: Update docs $(date '+%Y-%m-%d | %H:%m:%S %p %Z')" --signoff
     git push -u origin --all
