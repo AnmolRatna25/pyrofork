@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://github.com/AnmolRatna25/PyroRatnaGram">
-        <img src="https://docs.pyrogram.org/_static/pyrogram.png" alt="PyroRatnaGram" width="128">
+        <img src="./pyroratna.png" alt="PyroRatnaGram" width="128">
     </a>
     <br>
     <b>Telegram MTProto API Framework for Python</b>
@@ -48,14 +48,8 @@ app.run()
 framework. It enables you to easily interact with the main Telegram API through a user account (custom client) or a bot
 identity (bot API alternative) using Python.
 
-### Support
 
-If you'd like to support PyroRatnaGram, you can consider:
 
-- [Become a GitHub sponsor](https://github.com/sponsors/AnmolRatna25).
-- Donate via Razorpay:
-
-    <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_NU88lK67V6xLEP" async> </script> </form>
 
 ### Key Features
 
