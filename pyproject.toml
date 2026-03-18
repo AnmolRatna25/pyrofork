@@ -1,8 +1,8 @@
 [project]
-name = "pyrofork"
+name = "pyroratnagram"
 dynamic = ["version"]
-description = "Fork of pyrogram. Elegant, modern and asynchronous Telegram MTProto API framework in Python for users and bots"
-authors = [{ name = "wulan17", email = "mayuri@mayuri.my.id" }]
+description = "Elegant, modern and asynchronous Telegram MTProto API framework in Python for users and bots"
+authors = [{ name = "AnmolRatna25" }]
 dependencies = ["pyaes==1.6.1", "pysocks==1.7.1", "pymediainfo-pyrofork>=6.0.1,<7.0.0"]
 readme = "README.md"
 license = "LGPL-3.0-or-later"
@@ -30,7 +30,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Software Development :: Libraries :: Application Frameworks",
 ]
-keywords = ["telegram chat messenger mtproto api client library python"]
+keywords = ["telegram", "chat", "messenger", "mtproto", "api", "client", "library", "python"]
 
 [tool.hatch.version]
 path = "pyrogram/__init__.py"
@@ -39,11 +39,11 @@ path = "pyrogram/__init__.py"
 [tool.hatch.build.hooks.custom]
 
 [project.urls]
-Homepage = "https://github.com/Mayuri-Chan"
-Tracker = "https://github.com/Mayuri-Chan/pyrofork/issues"
-Community = "https://t.me/MayuriChan_Chat"
-Source = "https://github.com/Mayuri-Chan/pyrofork"
-Documentation = "https://pyrofork.wulan17.dev"
+Homepage = "https://github.com/AnmolRatna25/PyroRatnaGram"
+Tracker = "https://github.com/AnmolRatna25/PyroRatnaGram/issues"
+Community = "https://t.me/RATNA_Robot"
+Source = "https://github.com/AnmolRatna25/PyroRatnaGram"
+Documentation = "https://github.com/AnmolRatna25/PyroRatnaGram/tree/main/docs"
 
 [build-system]
 requires = ["hatchling"]
