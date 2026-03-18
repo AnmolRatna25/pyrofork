@@ -1,6 +1,6 @@
-"""PyroFork async utils"""
+"""PyroRatnaGram async utils"""
 # Copyright (C) 2020 - 2023  UserbotIndo Team, <https://github.com/userbotindo.git>
-# Copyright (C) 2022-present  Mayuri-Chan, <https://github.com/Mayuri-Chan.git>
+# Copyright (C) 2022-present  AnmolRatna25, <https://github.com/AnmolRatna25.git>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

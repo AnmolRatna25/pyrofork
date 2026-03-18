@@ -1,5 +1,5 @@
-#  Pyrofork - Telegram MTProto API Client Library for Python
-#  Copyright (C) 2022-present Mayuri-Chan <https://github.com/Mayuri-Chan>
+#  PyroRatnaGram - Telegram MTProto API Client Library for Python
+#  Copyright (C) 2022-present AnmolRatna25 <https://github.com/AnmolRatna25>
 #
 #  This file is part of Pyrogram.
 #

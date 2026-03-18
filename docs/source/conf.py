@@ -1,6 +1,6 @@
 #  PyroRatnaGram - Telegram MTProto API Client Library for Python
 #  Copyright (C) 2017-present Dan <https://github.com/delivrance>
-#  Copyright (C) 2022-present Mayuri-Chan <https://github.com/Mayuri-Chan>
+#  Copyright (C) 2022-present AnmolRatna25 <https://github.com/AnmolRatna25>
 #
 #  This file is part of PyroRatnaGram.
 #
@@ -29,8 +29,8 @@ from pygments.styles.friendly import FriendlyStyle
 FriendlyStyle.background_color = "#f3f2f1"
 
 project = "PyroRatnaGram"
-copyright = "2022-present, Mayuri-Chan"
-author = "Mayuri-Chan"
+copyright = "2022-present, AnmolRatna25"
+author = "AnmolRatna25"
 
 version = ".".join(__version__.split(".")[:-1])
 

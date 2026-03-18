@@ -9,7 +9,7 @@
         Homepage
     </a>
     •
-    <a href="https://pyrofork.wulan17.dev">
+    <a href="https://pyroratna.ratna.pw">
         Documentation
     </a>
     •
@@ -44,7 +44,7 @@ async def hello(client, message):
 app.run()
 ```
 
-**PyroRatnaGram** is a modern, elegant and asynchronous [MTProto API](https://pyrofork.wulan17.dev/main/topics/mtproto-vs-botapi)
+**PyroRatnaGram** is a modern, elegant and asynchronous [MTProto API](https://pyroratna.ratna.pw/main/topics/mtproto-vs-botapi)
 framework. It enables you to easily interact with the main Telegram API through a user account (custom client) or a bot
 identity (bot API alternative) using Python.
 
@@ -75,6 +75,6 @@ pip3 install -U pyroratnagram
 
 ### Resources
 
-- Check out the docs at https://pyrofork.wulan17.dev to learn more about PyroRatnaGram, get started right
+- Check out the docs at https://pyroratna.ratna.pw to learn more about PyroRatnaGram, get started right
 away and discover more in-depth material for building your client applications.
 - Join the official group at https://t.me/RATNA_Robot and stay tuned for news, updates and announcements.

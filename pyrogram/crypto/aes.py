@@ -1,21 +1,21 @@
-#  Pyrofork - Telegram MTProto API Client Library for Python
+#  PyroRatnaGram - Telegram MTProto API Client Library for Python
 #  Copyright (C) 2017-present Dan <https://github.com/delivrance>
-#  Copyright (C) 2022-present Mayuri-Chan <https://github.com/Mayuri-Chan>
+#  Copyright (C) 2022-present AnmolRatna25 <https://github.com/AnmolRatna25>
 #
-#  This file is part of Pyrofork.
+#  This file is part of PyroRatnaGram.
 #
-#  Pyrofork is free software: you can redistribute it and/or modify
+#  PyroRatnaGram is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU Lesser General Public License as published
 #  by the Free Software Foundation, either version 3 of the License, or
 #  (at your option) any later version.
 #
-#  Pyrofork is distributed in the hope that it will be useful,
+#  PyroRatnaGram is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU Lesser General Public License for more details.
 #
 #  You should have received a copy of the GNU Lesser General Public License
-#  along with Pyrofork.  If not, see <http://www.gnu.org/licenses/>.
+#  along with PyroRatnaGram.  If not, see <http://www.gnu.org/licenses/>.
 
 import logging
 
@@ -55,7 +55,7 @@ except ImportError:
     log.warning(
         "TgCrypto is missing! "
         "Pyrogram will work the same, but at a much slower speed. "
-        "More info: https://pyrofork.wulan17.dev/main/topics/speedups"
+        "More info: https://pyroratna.ratna.pw/main/topics/speedups"
     )
 
 
