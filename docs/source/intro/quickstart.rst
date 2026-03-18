@@ -1,18 +1,18 @@
 Quick Start
 ===========
 
-The next few steps serve as a quick start to see Pyrofork in action as fast as possible.
+The next few steps serve as a quick start to see PyroRatnaGram in action as fast as possible.
 
-Get Pyrofork Real Fast
+Get PyroRatnaGram Real Fast
 ----------------------
 
 .. admonition :: Cloud Credits
     :class: tip
 
-    If you need a cloud server to host your applications, try Hetzner Cloud. You can sign up with
-    `this link <https://hetzner.cloud/?ref=9CyT92gZEINU>`_ to get €20 in cloud credits.
+    If you need a cloud server to host your applications, try DigitalOcean. You can sign up with
+    `this link <https://m.do.co/c/d6d990473d13>`_ and get $200 in credits for 60 days.
 
-1. Install Pyrofork with ``pip3 install -U pyrofork``.
+1. Install PyroRatnaGram with ``pip3 install -U pyroratnagram``.
 
 2. Get your own Telegram API key from https://my.telegram.org/apps.
 
@@ -29,7 +29,7 @@ Get Pyrofork Real Fast
 
         async def main():
             async with Client("my_account", api_id, api_hash) as app:
-                await app.send_message("me", "Greetings from **Pyrofork**!")
+                await app.send_message("me", "Greetings from **PyroRatnaGram**!")
 
 
         asyncio.run(main())
@@ -42,7 +42,7 @@ Get Pyrofork Real Fast
 
 7. Follow the instructions on your terminal to login.
 
-8. Watch Pyrofork send a message to yourself.
+8. Watch PyroRatnaGram send a message to yourself.
 
 Enjoy the API
 -------------

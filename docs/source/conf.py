@@ -1,21 +1,21 @@
-#  Pyrofork - Telegram MTProto API Client Library for Python
+#  PyroRatnaGram - Telegram MTProto API Client Library for Python
 #  Copyright (C) 2017-present Dan <https://github.com/delivrance>
 #  Copyright (C) 2022-present Mayuri-Chan <https://github.com/Mayuri-Chan>
 #
-#  This file is part of Pyrofork.
+#  This file is part of PyroRatnaGram.
 #
-#  Pyrofork is free software: you can redistribute it and/or modify
+#  PyroRatnaGram is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU Lesser General Public License as published
 #  by the Free Software Foundation, either version 3 of the License, or
 #  (at your option) any later version.
 #
-#  Pyrofork is distributed in the hope that it will be useful,
+#  PyroRatnaGram is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU Lesser General Public License for more details.
 #
 #  You should have received a copy of the GNU Lesser General Public License
-#  along with Pyrofork.  If not, see <http://www.gnu.org/licenses/>.
+#  along with PyroRatnaGram.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
 import sys
@@ -28,7 +28,7 @@ from pygments.styles.friendly import FriendlyStyle
 
 FriendlyStyle.background_color = "#f3f2f1"
 
-project = "Pyrofork"
+project = "PyroRatnaGram"
 copyright = "2022-present, Mayuri-Chan"
 author = "Mayuri-Chan"
 
@@ -63,7 +63,7 @@ copybutton_prompt_text = "$ "
 
 suppress_warnings = ["image.not_readable"]
 
-html_title = "Pyrofork Documentation"
+html_title = "PyroRatnaGram Documentation"
 html_theme = "sphinx_immaterial"
 html_static_path = ["../resources/static","_static"]
 html_show_sourcelink = True
@@ -73,9 +73,9 @@ html_theme_options = {
         "repo": "fontawesome/brands/github",
         "edit": "material/file-edit-outline",
     },
-    "site_url": "https://pyrofork.wulan17.dev/",
+    "site_url": "https://pyroratna.ratna.pw/",
     "repo_url": "https://github.com/AnmolRatna25/PyroRatnaGram/",
-    "repo_name": "pyrofork",
+    "repo_name": "PyroRatnaGram",
     "globaltoc_collapse": True,
     "features": [
         "navigation.expand",
