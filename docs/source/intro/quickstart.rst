@@ -9,8 +9,8 @@ Get PyroRatnaGram Real Fast
 .. admonition :: Cloud Credits
     :class: tip
 
-    If you need a cloud server to host your applications, try Hetzner Cloud. You can sign up with
-    `this link <https://hetzner.cloud/?ref=9CyT92gZEINU>`_ to get €20 in cloud credits.
+    If you need a cloud server to host your applications, try DigitalOcean. You can sign up with
+    `this link <https://m.do.co/c/d6d990473d13>`_ and get $200 in credits for 60 days.
 
 1. Install PyroRatnaGram with ``pip3 install -U pyroratnagram``.
 
