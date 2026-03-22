@@ -44,7 +44,7 @@ Tracker = "https://github.com/AnmolRatna25/PyroRatnaGram/issues"
 Community = "https://t.me/official_RATNA"
 Source = "https://github.com/AnmolRatna25/PyroRatnaGram"
 Documentation = "https://pyroratna.ratna.pw"
-Changelog = "https://github.com/AnmolRatna25/PyroRatnaGram/CHANGELOG.md"
+Changelog = "https://github.com/AnmolRatna25/PyroRatnaGram/blob/main/CHANGELOG.md"
 
 [build-system]
 requires = ["hatchling"]

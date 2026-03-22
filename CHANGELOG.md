@@ -92,3 +92,47 @@ async def handle_other_callbacks(client, callback_query):
 
 app.run()
 ```
+
+### InlineKeyboardButton Example
+
+Use inline keyboard buttons when you want callback-based interactions directly under a message.
+
+```python
+from pyrogram import Client, enums
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+
+app = Client("my_account")
+
+
+@app.on_message()
+async def send_inline_keyboard(client, message):
+	keyboard = InlineKeyboardMarkup(
+		[
+			[
+				InlineKeyboardButton(
+					"Open Docs",
+					url="https://pyroratna.ratna.pw",
+					style=enums.ButtonStyle.PRIMARY,
+					icon_custom_emoji_id=5368324170671202286,
+				),
+				InlineKeyboardButton(
+					"Delete",
+					callback_data="delete",
+					style=enums.ButtonStyle.DANGER,
+					icon_custom_emoji_id=5368324170671202286,
+				),
+			]
+		]
+	)
+
+	await message.reply("Choose an action:", reply_markup=keyboard)
+
+
+@app.on_callback_query()
+async def handle_inline_callbacks(client, callback_query):
+	if callback_query.data == "delete":
+		await callback_query.answer("Delete action confirmed")
+
+
+app.run()
+```

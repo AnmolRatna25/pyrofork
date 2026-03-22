@@ -79,7 +79,7 @@ async def pm_search(client, message):
 
 Why this change matters: it prevents unnecessary handler execution, keeps handlers cleaner, and reduces logic duplication.
 
-For the full list of updates, see [CHANGELOG.md](./CHANGELOG.md).
+For the full list of updates, see [CHANGELOG.md](https://github.com/AnmolRatna25/PyroRatnaGram/blob/main/CHANGELOG.md).
 
 
 
