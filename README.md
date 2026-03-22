@@ -48,6 +48,39 @@ app.run()
 framework. It enables you to easily interact with the main Telegram API through a user account (custom client) or a bot
 identity (bot API alternative) using Python.
 
+### Most Important Changes
+
+- KeyboardButton now supports style and icon_custom_emoji_id for richer reply keyboards.
+- Available ButtonStyle colors are PRIMARY (blue), DANGER (red), and SUCCESS (green).
+- Callback query handlers now support clear priority flow with group usage.
+- Documentation and project links were updated to the current PyroRatnaGram endpoints.
+
+### Breaking Changes
+
+- Package publishing identity is now pyroratnagram. Use pip3 install -U pyroratnagram for new installs and upgrades.
+- For private incoming text handlers, command exclusion should be moved to decorator-level filtering.
+
+Old style:
+
+```python
+@Client.on_message(filters.private & filters.text & filters.incoming)
+async def pm_search(client, message):
+    if str(message.text).startswith('/'):
+        return
+```
+
+Recommended style:
+
+```python
+@Client.on_message(filters.private & filters.text & filters.incoming & filters.regex(r"^(?!/)"))
+async def pm_search(client, message):
+    ...
+```
+
+Why this change matters: it prevents unnecessary handler execution, keeps handlers cleaner, and reduces logic duplication.
+
+For the full list of updates, see [CHANGELOG.md](./CHANGELOG.md).
+
 
 
 
@@ -71,4 +104,4 @@ pip3 install -U pyroratnagram
 
 - Check out the docs at https://pyroratna.ratna.pw to learn more about PyroRatnaGram, get started right
 away and discover more in-depth material for building your client applications.
-- Join the official group at https://t.me/RATNA_Robot and stay tuned for news, updates and announcements.
+- Join the official Telegram Channel at https://t.me/official_RATNA and stay tuned for news, updates and announcements.
